@@ -5,6 +5,7 @@ const formStyles = makeStyles((theme: Theme) => ({
    display: 'flex',
    flexDirection: 'column',
    rowGap: theme.spacing(2),
+   padding: theme.spacing(4)
   },
   cvcExpiryContainer: {
       display: 'flex',

@@ -1,16 +1,14 @@
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from './components/theme/theme';
+import theme from "./components/theme/theme";
 
 import Form from "./components/form/Form";
-import LayoutContainer from "./components/layout/LayoutContainer";
+import NavigationMenu from "./components/navigationMenu/NavigationMenu";
 
 const App = () => (
-    <ThemeProvider theme={theme}>
-    <LayoutContainer>
+  <ThemeProvider theme={theme}>
+    <NavigationMenu />
       <Form />
-    </LayoutContainer>
-    </ThemeProvider>
+  </ThemeProvider>
 );
 
 export default App;
-

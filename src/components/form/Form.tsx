@@ -1,10 +1,10 @@
-import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 import useStyles from "./formStyles";
+import LayoutContainer from "../layout/LayoutContainer";
 
 const validationSchema = yup.object({
   creditCardNumber: yup.number().required("Credit Card Number is required"),
@@ -27,51 +27,53 @@ const RegisterForm = () => {
   });
 
   return (
-    <div>
-      <form className={classes.root} onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="credit-card-number"
-          name="creditCardNumber"
-          label="Credit card number"
-          variant="outlined"
-          value={formik.values.creditCardNumber}
-          onChange={formik.handleChange}
-          error={
-            formik.touched.creditCardNumber &&
-            Boolean(formik.errors.creditCardNumber)
-          }
-          helperText={
-            formik.touched.creditCardNumber && formik.errors.creditCardNumber
-          }
-        />
-        <div className={classes.cvcExpiryContainer}>
+    <LayoutContainer>
+      <form onSubmit={formik.handleSubmit}>
+        <div className={classes.root}>
           <TextField
-            id="cvc"
-            name="cvc"
-            label="CVC"
+            fullWidth
+            id="credit-card-number"
+            name="creditCardNumber"
+            label="Credit card number"
             variant="outlined"
-            value={formik.values.cvc}
+            value={formik.values.creditCardNumber}
             onChange={formik.handleChange}
-            error={formik.touched.cvc && Boolean(formik.errors.cvc)}
-            helperText={formik.touched.cvc && formik.errors.cvc}
+            error={
+              formik.touched.creditCardNumber &&
+              Boolean(formik.errors.creditCardNumber)
+            }
+            helperText={
+              formik.touched.creditCardNumber && formik.errors.creditCardNumber
+            }
           />
-          <TextField
-            id="expiry"
-            name="expiry"
-            label="Expiry"
-            variant="outlined"
-            value={formik.values.expiry}
-            onChange={formik.handleChange}
-            error={formik.touched.expiry && Boolean(formik.errors.expiry)}
-            helperText={formik.touched.expiry && formik.errors.expiry}
-          />
+          <div className={classes.cvcExpiryContainer}>
+            <TextField
+              id="cvc"
+              name="cvc"
+              label="CVC"
+              variant="outlined"
+              value={formik.values.cvc}
+              onChange={formik.handleChange}
+              error={formik.touched.cvc && Boolean(formik.errors.cvc)}
+              helperText={formik.touched.cvc && formik.errors.cvc}
+            />
+            <TextField
+              id="expiry"
+              name="expiry"
+              label="Expiry"
+              variant="outlined"
+              value={formik.values.expiry}
+              onChange={formik.handleChange}
+              error={formik.touched.expiry && Boolean(formik.errors.expiry)}
+              helperText={formik.touched.expiry && formik.errors.expiry}
+            />
+          </div>
+          <Button color="primary" variant="contained" fullWidth type="submit">
+            Submit
+          </Button>
         </div>
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
-        </Button>
       </form>
-    </div>
+    </LayoutContainer>
   );
 };
 
