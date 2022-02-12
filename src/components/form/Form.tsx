@@ -68,7 +68,7 @@ const RegisterForm = () => {
               helperText={formik.touched.expiry && formik.errors.expiry}
             />
           </div>
-          <Button color="primary" variant="contained" fullWidth type="submit">
+          <Button color="primary" variant="contained" fullWidth type="submit" aria-label="submit">
             Submit
           </Button>
         </div>
