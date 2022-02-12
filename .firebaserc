@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "github-c5c88"
+  },
+  "targets": {
+    "github-c5c88": {
+      "hosting": {
+        "asb-react": [
+          "asb-react"
+        ]
+      }
+    }
+  }
+}
